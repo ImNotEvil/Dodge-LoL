@@ -14,7 +14,7 @@ function raw_filter(){
 	}
 	var is_player_here = false;
 	var texte = document.getElementById('raw_usernames').value;
-	var regex = /(^.+)( joined the room)/ ;
+	var regex = /(^.+)( joined the lobby)/ ;
 
 	var k = 0;
 	var tab=[];
