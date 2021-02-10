@@ -11,7 +11,7 @@ function parser_win_loose(win, loose) {
 
 function get_win_loose(pseudo){
 
-	var value = sessionStorage.getItem(pseudo);
+	var value = localStorage.getItem(pseudo);
 	if (value == null ){
 		set_win_loose(pseudo,0,0);
 		return([0,0]);
@@ -22,7 +22,7 @@ function get_win_loose(pseudo){
 
 }
 function set_win_loose(pseudo,win,loose){
-	sessionStorage.setItem(pseudo, parser_win_loose(win,loose));
+	localStorage.setItem(pseudo, parser_win_loose(win,loose));
 }
 
 function table_row(pseudo,infos){

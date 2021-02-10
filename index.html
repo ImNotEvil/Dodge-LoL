@@ -1,236 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<title>Dodging</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="google-site-verification" content="saz_8d8XtaPBBmJEFU8zpyZvr9PadPW84kzHRZ434VY" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.combined.js"></script>
-	<style>
-		/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-		.row.content {
-			height: 1500px
-		}
-
-		/* Set gray background color and 100% height */
-		.sidenav {
-			background-color: #f1f1f1;
-			height: 100%;
-		}
-
-		ul.nav-pills {
-			top: auto;
-			position: fixed;
-		}
-
-		/* Set black background color, white text and some padding */
-		footer {
-			background-color: #555;
-			color: white;
-			padding: 15px;
-		}
-
-		/* On small screens, set height to 'auto' for sidenav and grid */
-		@media screen and (max-width: 767px) {
-			.sidenav {
-				height: auto;
-				padding: 15px;
-			}
-
-			.row.content {
-				height: auto;
-			}
-		}
-	</style>
-</head>
-
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="200" onload="load_content()">
-	<br>
-	<div class="container-fluid text-center">
-		<h1>
-			Should I dodge this game ?
-			<h1>
-	</div>
-	<br>
-	<div class="container-fluid">
-		<div class="row">
-			<nav class="col-sm-2" id="myScrollspy">
-				<div class="well">
-					<img style="width: 100%;" alt="Github" title="Github" src="https://avatars2.githubusercontent.com/u/52131891?s=460&u=6071a04fa37bc08a7af3b998b5e198b7e4c1e3a9&v=4">
-					<br>
-					<a type="button" class="btn btn-primary btn-block" href="https://github.com/ImNotEvil">Github</a>
-				</div>
-				<ul class="nav nav-pills nav-stacked">
-					<li><a href="#">Github</a></li>
-					<li class="active"><a href="#section1">Dodge ?</a></li>
-					<li><a href="#section2">Add players</a></li>
-					<li><a href="#section3">History</a></li>
-				</ul>
-			</nav>
-			<div class="col-sm-10">
-				<div id="section1" class="panel panel-primary">
-					<div class="panel-heading">
-						<h1>Dodge ?</h1>
-					</div>
-					<div class="panel-body">
-						<h3>
-							To decide if you should dodge or not put the name of the other players here and see if you played with them before or not
-							<h3>
-								<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-									<input spellcheck="false" onchange="save_content('player_username')" id="player_username" type="text" class="form-control" placeholder="Your username">
-								</div>
-								<br>
-								<div class="col-sm-12">
-									<div class="col-sm-4">
-										<label>Lobby players raw input:</label>
-										<textarea onchange="save_content('raw_usernames')" name="test" spellcheck="false" class="form-control" rows="5" id="raw_usernames" placeholder="ROX Smeb joined the lobby
+   <head>
+      <title>Dodging</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="google-site-verification" content="saz_8d8XtaPBBmJEFU8zpyZvr9PadPW84kzHRZ434VY" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <style>
+         /* Set black background color, white text and some padding */
+         footer {
+         background-color: #555;
+         color: white;
+         padding: 15px;
+         }
+      </style>
+   </head>
+   <body onload="load_content()">
+      <br>
+      <div class="container-fluid text-center">
+         <h1>
+         Should I dodge this game ?
+         <h1>
+      </div>
+      <br>
+      <div class="container-fluid">
+         <div class="row">
+            <nav class="col-sm-2">
+               <img style="width: 100%;" alt="Github" title="Github" src="https://avatars2.githubusercontent.com/u/52131891?s=460&u=6071a04fa37bc08a7af3b998b5e198b7e4c1e3a9&v=4">
+               <br>
+               <a type="button" class="btn btn-primary btn-block" href="https://github.com/ImNotEvil">Made by ImNotEvil</br>powered by Github.io</a>
+            </nav>
+            <div class="col-sm-10">
+               <div class="panel panel-primary">
+                  <div class="panel-heading">
+                     <h1>Dodge ?</h1>
+                  </div>
+                  <div class="panel-body">
+                     <h3>
+                     To decide if you should dodge or not put the name of the other players here and see if you played with them before or not
+                     <h3>
+                     <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input spellcheck="false" onchange="save_content('player_username')" id="player_username" type="text" class="form-control" placeholder="Your username">
+                     </div>
+                     <br>
+                     <div class="col-sm-12">
+                        <div class="col-sm-4">
+                           <label>Lobby players raw input:</label>
+                           <textarea onchange="save_content('raw_usernames')" name="test" spellcheck="false" class="form-control" rows="5" id="raw_usernames"
+placeholder="ROX Smeb joined the lobby
 ROX Peanut joined the lobby
 ROX Kuro joined the lobby
 ROX PraY joined the lobby
 ROX GorillA joined the lobby"></textarea>
-										<button type="button" class="btn btn-warning btn-block" onclick="raw_filter()">Parse raw usernames <span class="glyphicon glyphicon-arrow-right"></span></button>
-
-										<br>
-									</div>
-									<div class="col-sm-8">
-										<label>Lobby players :</label>
-										<div class="input-group">
-											<span class="input-group-addon">Player 1</span>
-											<input spellcheck="false" onchange="save_content('teammate0')" id="teammate0" type="text" class="form-control" placeholder="Teammate 1 username">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">Player 2</span>
-											<input spellcheck="false" onchange="save_content('teammate1')" id="teammate1" type="text" class="form-control" placeholder="Teammate 2 username">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">Player 3</span>
-											<input spellcheck="false" onchange="save_content('teammate2')" id="teammate2" type="text" class="form-control" placeholder="Teammate 3 username">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">Player 4</span>
-											<input spellcheck="false" onchange="save_content('teammate3')" id="teammate3" type="text" class="form-control" placeholder="Teammate 4 username">
-										</div>
-										<br>
-									</div>
-									<button type="button" class="btn btn-primary btn-block" onclick="search()">Scan <span class="glyphicon glyphicon-search"></span></button>
-								</div>
-								<div  id="table_dodge" style="display:none" class="col-sm-12">
-									<h3>You got a ratio of <span id="nombre_victoire">0</span>/<span id="nombre_defaite">0</span> (W/L) with your teamates so you should <span id="advice" class="label label-warning">PLAY</span></h3>
-									<table id="myTable1" class="tablesorter table table-striped">
-										<thead>
-											<tr>
-												<th>Username</th>
-												<th>Win</th>
-												<th>Loose</th>
-											</tr>
-										</thead>
-										<tbody id='table_body1'>
-										</tbody>
-									</table>
-								</div>
-					</div>
-				</div>
-				<hr id="section2">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h1>Store players to your session data</h1>
-					</div>
-					<div class="panel-body">
-						<h3>
-							Once the game is over you can store this players encounter in case you meet them again and want to dodge
-							<h3>
-								<div class="col-sm-12">
-									<div class="col-sm-8">
-										<label>Lobby players :</label>
-										<div class="input-group">
-											<span class="input-group-addon">Player 1</span>
-											<input spellcheck="false" id="teammate0_bis" type="text" class="form-control" placeholder="Teammate 1 username">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">Player 2</span>
-											<input spellcheck="false" id="teammate1_bis" type="text" class="form-control" placeholder="Teammate 2 username">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">Player 3</span>
-											<input spellcheck="false" id="teammate2_bis" type="text" class="form-control" placeholder="Teammate 3 username">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">Player 4</span>
-											<input spellcheck="false" id="teammate3_bis" type="text" class="form-control" placeholder="Teammate 4 username">
-										</div>
-										<br>
-									</div>
-									<div class="col-sm-4">
-										<label>Game result</label>
-										<div class="radio">
-											<label><input type="radio" name=radio id="game_won" checked><span class="label label-primary">Victory<span></label>
-										</div>
-										<br>
-										<div class="radio">
-											<label><input type="radio" name=radio id="game_lost"><span class="label label-danger">Defeat</span></label>
-										</div>
-									</div>
-									<button type="button" class="btn btn-warning btn-block" onclick="upload()">Commit <span class="glyphicon glyphicon-cloud-upload"></span></button>
-								</div>
-
-
-					</div>
-				</div>
-				<hr id="section3">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h1>History</h1>
-					</div>
-					<div class="panel-body">
-						<h3>Here you can look at your whole matchup history of your teammates<h3>
-								<table id="myTable2" class="tablesorter table table-striped">
-									<thead>
-										<tr>
-											<th>Username</th>
-											<th>Win</th>
-											<th>Loose</th>
-										</tr>
-									</thead>
-									<tbody id="table_body2">
-									</tbody>
-								</table>
-								<script>
-									$(function() {
-										$("#myTable1").tablesorter({
-											sortList: [
-												[0, 0],
-												[1, 0]
-											]
-										});
-									});
-									$(function() {
-										$("#myTable2").tablesorter({
-											sortList: [
-												[0, 0],
-												[1, 0]
-											]
-										});
-									});
-								</script>
-								<button type="button" class="btn btn-success btn-block" onclick="refresh_table()">Refresh <span class="glyphicon glyphicon-refresh"></span></button>
-					</div>
-				</div>
-				<hr>
-			</div>
-		</div>
-	</div>
-	<footer class="container-fluid">
-		<button type="button" onclick="clear_all()" class="btn btn-default btn-lg btn-block">Clear session Storage and reload</button>
-	</footer>
-	<script src="part_0.js"></script>
-	<script src="part_1.js"></script>
-	<script src="part_2.js"></script>
-	<script src="part_3.js"></script>
-</body>
-
+                           <button type="button" class="btn btn-warning btn-block" onclick="raw_filter()">Parse raw usernames <span class="glyphicon glyphicon-arrow-right"></span></button>
+                           <br>
+                        </div>
+                        <div class="col-sm-8">
+                           <label>Lobby players :</label>
+                           <div class="input-group">
+                              <span class="input-group-addon">Player 1</span>
+                              <input spellcheck="false" onchange="save_content('teammate0')" id="teammate0" type="text" class="form-control" placeholder="Teammate 1 username">
+                           </div>
+                           <div class="input-group">
+                              <span class="input-group-addon">Player 2</span>
+                              <input spellcheck="false" onchange="save_content('teammate1')" id="teammate1" type="text" class="form-control" placeholder="Teammate 2 username">
+                           </div>
+                           <div class="input-group">
+                              <span class="input-group-addon">Player 3</span>
+                              <input spellcheck="false" onchange="save_content('teammate2')" id="teammate2" type="text" class="form-control" placeholder="Teammate 3 username">
+                           </div>
+                           <div class="input-group">
+                              <span class="input-group-addon">Player 4</span>
+                              <input spellcheck="false" onchange="save_content('teammate3')" id="teammate3" type="text" class="form-control" placeholder="Teammate 4 username">
+                           </div>
+                           <br>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="search()">Scan <span class="glyphicon glyphicon-search"></span></button>
+                     </div>
+                     <div id="table_dodge" style="display:none" class="col-sm-12">
+                        <h3>You got a ratio of <span id="nombre_victoire">0</span>/<span id="nombre_defaite">0</span> (W/L) with your teamates so you should <span id="advice" class="label label-warning">PLAY</span></h3>
+                        <table class="table table-striped">
+                           <thead>
+                              <tr>
+                                 <th>Username</th>
+                                 <th>Win</th>
+                                 <th>Loose</th>
+                              </tr>
+                           </thead>
+                           <tbody id="table_body1">
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid">
+            <div>
+               <div class="panel panel-primary">
+                  <div class="panel-heading">
+                     <h1>Store players to your session data</h1>
+                  </div>
+                  <div class="panel-body">
+                     <h3>
+                     Once the game is over you can store this players encounter in case you meet them again and want to dodge
+                     <h3>
+                     <div class="col-sm-12">
+                        <div class="col-sm-8">
+                           <label>Lobby players :</label>
+                           <div class="input-group">
+                              <span class="input-group-addon">Player 1</span>
+                              <input spellcheck="false" id="teammate0_bis" type="text" class="form-control" placeholder="Teammate 1 username">
+                           </div>
+                           <div class="input-group">
+                              <span class="input-group-addon">Player 2</span>
+                              <input spellcheck="false" id="teammate1_bis" type="text" class="form-control" placeholder="Teammate 2 username">
+                           </div>
+                           <div class="input-group">
+                              <span class="input-group-addon">Player 3</span>
+                              <input spellcheck="false" id="teammate2_bis" type="text" class="form-control" placeholder="Teammate 3 username">
+                           </div>
+                           <div class="input-group">
+                              <span class="input-group-addon">Player 4</span>
+                              <input spellcheck="false" id="teammate3_bis" type="text" class="form-control" placeholder="Teammate 4 username">
+                           </div>
+                           <br>
+                        </div>
+                        <div class="col-sm-4">
+                           <label>Game result</label>
+                           <div class="radio">
+                              <label><input type="radio" name=radio id="game_won" checked><span class="label label-primary">Victory<span></label>
+                           </div>
+                           <br>
+                           <div class="radio">
+                              <label><input type="radio" name=radio id="game_lost"><span class="label label-danger">Defeat</span></label>
+                           </div>
+                        </div>
+                        <button type="button" class="btn btn-warning btn-block" onclick="upload()">Commit <span class="glyphicon glyphicon-cloud-upload"></span></button>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-primary">
+                  <div class="panel-heading">
+                     <h1>History</h1>
+                  </div>
+                  <div class="panel-body">
+                     <h3>
+                     Here you can look at your whole matchup history of your teammates
+                     <h3>
+                     <table class="table table-striped">
+                        <thead>
+                           <tr>
+                              <th>Username</th>
+                              <th>Win</th>
+                              <th>Loose</th>
+                           </tr>
+                        </thead>
+                        <tbody id="table_body2">
+                        </tbody>
+                     </table>
+                     <button type="button" class="btn btn-success btn-block" onclick="refresh_table()">Refresh <span class="glyphicon glyphicon-refresh"></span></button>
+                  </div>
+               </div>
+               <hr>
+            </div>
+         </div>
+      </div>
+      <footer class="container-fluid">
+         <button type="button" onclick="clear_all()" class="btn btn-default btn-lg btn-block">Clear data</button>
+      </footer>
+      <script src="part_0.js"></script>
+      <script src="part_1.js"></script>
+      <script src="part_2.js"></script>
+      <script src="part_3.js"></script>
+   </body>
 </html>

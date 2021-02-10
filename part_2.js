@@ -11,7 +11,7 @@ function update(array_pseudo, win_or_loose) {
 
 
         //Get pseudo infos
-        var infos = sessionStorage.getItem(pseudo);
+        var infos = localStorage.getItem(pseudo);
 
         if (infos != null) {
             //If we encoutered this guy before
@@ -32,7 +32,7 @@ function update(array_pseudo, win_or_loose) {
 
         var value = parser_win_loose(win, loose);
 
-        sessionStorage.setItem(pseudo, value);
+        localStorage.setItem(pseudo, value);
 
     });
 }
